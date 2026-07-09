@@ -1,6 +1,6 @@
 # Event Ingestion Contract
 
-This document defines the first EchoNet ingestion contract. It is intentionally small enough to implement now and broad enough to support Memory Layer, RiverPaths, Navigator, AetherNode, website/demo, and EchoChain handoff events.
+This document defines the first EchoNet ingestion contract. It is intentionally small enough to implement now and broad enough to support Memory Layer, RiverPaths, EchoPath, Navigator, AetherNode, website/demo, and EchoChain handoff events.
 
 ## Contract goals
 
@@ -9,6 +9,7 @@ This document defines the first EchoNet ingestion contract. It is intentionally 
 - Raw sensitive payloads are not required for downstream analysis.
 - All handoff candidates can later be sealed under `none`, `local`, `ledger`, or `council` modes.
 - EchoChain-facing packets can be produced from projections rather than raw telemetry.
+- Public-safe packets must use anonymous identity mode and no raw payload retention.
 
 ## Canonical packet
 
@@ -45,6 +46,19 @@ The canonical schema lives at `schemas/echonet_event.schema.json`.
 }
 ```
 
+## Source systems
+
+Allowed `source.system` values are:
+
+- `memory_layer`
+- `riverpaths`
+- `navigator`
+- `echopath`
+- `aethernode`
+- `website_demo`
+- `manual`
+- `echonet`
+
 ## Event types
 
 | Event type | Meaning |
@@ -57,6 +71,13 @@ The canonical schema lives at `schemas/echonet_event.schema.json`.
 | `demo.analytics` | Public-safe website/demo event. |
 | `sealed.handoff` | EchoNet projection prepared for EchoChain/Reflection Ledger. |
 | `research.run` | Simulation or experiment summary packet. |
+
+## Adapter-specific schema constraints
+
+- `memory_ingest_event.schema.json` requires `source.system=memory_layer`, `domain=MemoryLayer`, and `event_type=memory.ingest`.
+- `navigator_telemetry_event.schema.json` accepts `source.system` values `riverpaths`, `navigator`, or `echopath`; domains `RiverPaths`, `Navigator`, or `EchoPath`; and event types `route.telemetry` or `navigator.decision`.
+- `aethernode_telemetry_event.schema.json` requires `source.system=aethernode`, `domain=AetherNode`, and event type `aethernode.telemetry` or `cluster.coherence`.
+- `echonet_echochain_handoff.schema.json` is separate from the generic event schema and only describes privacy-projected EchoChain/Reflection Ledger handoff packets.
 
 ## Coherence fields
 
@@ -74,10 +95,13 @@ The canonical schema lives at `schemas/echonet_event.schema.json`.
 - `ledger`: eligible for Reflection Ledger or EchoChain candidate processing.
 - `council`: high-impact packet requiring WOSP/council-style review before policy, reward, or governance use.
 
+EchoChain handoff packets with `candidate_ping: fold` must use `seal_mode: council`.
+
 ## Validation rules
 
 1. Reject events without `schema_version`, `event_id`, `timestamp`, `source`, `domain`, `event_type`, `privacy`, or `payload`.
-2. Reject public events that include raw identity, raw location, raw conversation content, or raw sensor streams unless explicitly marked and approved.
+2. Reject `public_safe` packets unless `raw_payload_retention` is `none` and `identity_mode` is `anonymous`.
 3. Coherence metrics must be numeric or null; do not overload them with strings.
 4. EchoChain handoff must use projected fields only and should not include raw private content.
-5. Research claims must be marked as `research.run` and not presented as product telemetry proof.
+5. Handoff `privacy_projection`, `context`, and `scoring_inputs` objects are closed to unknown fields.
+6. Research claims must be marked as `research.run` and not presented as product telemetry proof.
