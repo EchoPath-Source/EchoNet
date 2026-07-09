@@ -22,7 +22,8 @@
     "agency_hint": 0.2,
     "relationality_hint": 0.3,
     "persistence_hint": 0.4,
-    "anomaly_risk": 0.12
+    "anomaly_risk": 0.12,
+    "confidence": 0.86
   },
   "notes": "Example only. EchoChain decides scoring/reward status downstream."
 }
