@@ -2,6 +2,19 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://schemas.echo-labs.internal/echonet/navigator_telemetry_event.schema.json",
   "title": "EchoNet Navigator Telemetry Event",
-  "description": "Specialization of EchoNet Event for route, corridor, route-card, RiverPaths, and Navigator decision-support telemetry. event_type should be route.telemetry or navigator.decision.",
-  "allOf": [{"$ref": "./echonet_event.schema.json"}]
+  "description": "Specialization of EchoNet Event for route, corridor, route-card, RiverPaths, EchoPath, and Navigator decision-support telemetry.",
+  "allOf": [
+    {"$ref": "./echonet_event.schema.json"},
+    {
+      "properties": {
+        "source": {
+          "properties": {
+            "system": {"enum": ["riverpaths", "navigator", "echopath"]}
+          }
+        },
+        "domain": {"enum": ["RiverPaths", "Navigator", "EchoPath"]},
+        "event_type": {"enum": ["route.telemetry", "navigator.decision"]}
+      }
+    }
+  ]
 }
