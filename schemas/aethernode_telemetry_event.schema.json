@@ -2,6 +2,19 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://schemas.echo-labs.internal/echonet/aethernode_telemetry_event.schema.json",
   "title": "EchoNet AetherNode Telemetry Event",
-  "description": "Specialization of EchoNet Event for QRNG, EMF, magnetic, environmental, acoustic, vibration, and cluster coherence telemetry.",
-  "allOf": [{"$ref": "./echonet_event.schema.json"}]
+  "description": "Specialization of EchoNet Event for QRNG, EMF, magnetic, environmental, acoustic, vibration, and cluster coherence telemetry. Requires source.system=aethernode, domain=AetherNode, and an AetherNode telemetry event type.",
+  "allOf": [
+    {"$ref": "./echonet_event.schema.json"},
+    {
+      "properties": {
+        "source": {
+          "properties": {
+            "system": {"const": "aethernode"}
+          }
+        },
+        "domain": {"const": "AetherNode"},
+        "event_type": {"enum": ["aethernode.telemetry", "cluster.coherence"]}
+      }
+    }
+  ]
 }
