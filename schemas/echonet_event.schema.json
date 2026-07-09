@@ -15,7 +15,7 @@
       "required": ["system", "adapter", "source_id"],
       "additionalProperties": false,
       "properties": {
-        "system": {"type": "string", "enum": ["memory_layer", "riverpaths", "navigator", "aethernode", "website_demo", "manual", "echonet"]},
+        "system": {"type": "string", "enum": ["memory_layer", "riverpaths", "navigator", "echopath", "aethernode", "website_demo", "manual", "echonet"]},
         "adapter": {"type": "string"},
         "source_id": {"type": "string"},
         "session_id": {"type": "string"},
@@ -51,5 +51,30 @@
     },
     "payload": {"type": "object"},
     "references": {"type": "array", "items": {"type": "string"}}
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "privacy": {
+            "properties": {
+              "classification": {"const": "public_safe"}
+            },
+            "required": ["classification"]
+          }
+        },
+        "required": ["privacy"]
+      },
+      "then": {
+        "properties": {
+          "privacy": {
+            "properties": {
+              "raw_payload_retention": {"const": "none"},
+              "identity_mode": {"const": "anonymous"}
+            }
+          }
+        }
+      }
+    }
+  ]
 }
