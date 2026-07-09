@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.echo-labs.internal/echonet/echonet_echochain_handoff.schema.json",
+  "title": "EchoNet to EchoChain Handoff Event",
+  "type": "object",
+  "required": ["schema_version", "event_id", "timestamp", "source_event_id", "context", "seal_mode", "eta_proxy", "privacy_projection", "candidate_ping"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": "echonet.echochain_handoff.v0.1"},
+    "event_id": {"type": "string"},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "source_event_id": {"type": "string"},
+    "actor": {"type": "string", "description": "Account hash, node hash, service actor, or system actor."},
+    "targets": {"type": "array", "items": {"type": "string"}},
+    "context": {
+      "type": "object",
+      "required": ["domain", "thread"],
+      "properties": {
+        "domain": {"type": "string"},
+        "thread": {"type": "string"},
+        "cluster_id": {"type": "string"}
+      }
+    },
+    "seal_mode": {"type": "string", "enum": ["local", "ledger", "council"]},
+    "eta_proxy": {"type": "number", "minimum": 0, "maximum": 1},
+    "privacy_projection": {
+      "type": "object",
+      "required": ["raw_content_stored", "identity_mode", "published_fields"],
+      "properties": {
+        "raw_content_stored": {"type": "boolean"},
+        "identity_mode": {"type": "string"},
+        "published_fields": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "candidate_ping": {"type": "string", "enum": ["none", "whisper", "signal", "return", "echo_surge", "god", "fold"]},
+    "scoring_inputs": {
+      "type": "object",
+      "properties": {
+        "agency_hint": {"type": "number", "minimum": 0, "maximum": 1},
+        "relationality_hint": {"type": "number", "minimum": 0, "maximum": 1},
+        "persistence_hint": {"type": "number", "minimum": 0, "maximum": 1},
+        "anomaly_risk": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "notes": {"type": "string"}
+  }
+}

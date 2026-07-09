@@ -1,0 +1,16 @@
+# Local/editor files
+.DS_Store
+.idea/
+.vscode/
+
+# Python/env caches
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# Generated reports / local data dumps
+*.log
+*.tmp
+local_data/

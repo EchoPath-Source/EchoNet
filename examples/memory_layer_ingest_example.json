@@ -1,0 +1,41 @@
+{
+  "schema_version": "echonet.event.v0.1",
+  "event_id": "evt_memory_demo_0001",
+  "timestamp": "2026-01-11T04:33:00Z",
+  "source": {
+    "system": "memory_layer",
+    "adapter": "memory_layer_v0.1",
+    "source_id": "room_remembers_demo",
+    "session_id": "demo_session_hash"
+  },
+  "domain": "MemoryLayer",
+  "event_type": "memory.ingest",
+  "seal_mode": "local",
+  "eta_proxy": 0.38,
+  "coherence": {
+    "r_value": null,
+    "spectral_entropy": null,
+    "concurrence_proxy": null,
+    "anomaly_score": 0.07,
+    "anomaly_flag": false,
+    "confidence": 0.82
+  },
+  "privacy": {
+    "classification": "public_safe",
+    "raw_payload_retention": "none",
+    "identity_mode": "anonymous",
+    "notes": "Example uses fake IDs only."
+  },
+  "payload": {
+    "memory_event_type": "anchor.updated",
+    "anchor_id": "anchor_living_room_hash",
+    "zone_id": "zone_hallway_hash",
+    "channel": "danger",
+    "delta": 0.18,
+    "threshold_before": "watch",
+    "threshold_after": "investigate",
+    "event_count_window": 7,
+    "ledger_export_candidate": true
+  },
+  "references": ["docs/MEMORY_LAYER_INGESTION.md"]
+}

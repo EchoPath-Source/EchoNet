@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.echo-labs.internal/echonet/echonet_event.schema.json",
+  "title": "EchoNet Event",
+  "description": "Canonical normalized event packet for EchoNet ingestion and routing.",
+  "type": "object",
+  "required": ["schema_version", "event_id", "timestamp", "source", "domain", "event_type", "privacy", "payload"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": "echonet.event.v0.1"},
+    "event_id": {"type": "string", "minLength": 8},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "source": {
+      "type": "object",
+      "required": ["system", "adapter", "source_id"],
+      "additionalProperties": false,
+      "properties": {
+        "system": {"type": "string", "enum": ["memory_layer", "riverpaths", "navigator", "aethernode", "website_demo", "manual", "echonet"]},
+        "adapter": {"type": "string"},
+        "source_id": {"type": "string"},
+        "session_id": {"type": "string"},
+        "node_id_hash": {"type": "string"}
+      }
+    },
+    "domain": {"type": "string", "enum": ["EchoNet", "AetherNode", "MemoryLayer", "Navigator", "RiverPaths", "EchoPath", "EchoChain", "Demo", "Research"]},
+    "event_type": {"type": "string", "enum": ["memory.ingest", "route.telemetry", "navigator.decision", "aethernode.telemetry", "cluster.coherence", "demo.analytics", "sealed.handoff", "research.run"]},
+    "seal_mode": {"type": "string", "enum": ["none", "local", "ledger", "council"], "default": "none"},
+    "eta_proxy": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+    "coherence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "r_value": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "spectral_entropy": {"type": ["number", "null"], "minimum": 0},
+        "concurrence_proxy": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "anomaly_score": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "anomaly_flag": {"type": "boolean"},
+        "confidence": {"type": ["number", "null"], "minimum": 0, "maximum": 1}
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "required": ["classification", "raw_payload_retention", "identity_mode"],
+      "additionalProperties": false,
+      "properties": {
+        "classification": {"type": "string", "enum": ["public_safe", "internal", "restricted", "research_private"]},
+        "raw_payload_retention": {"type": "string", "enum": ["none", "short_window", "internal_only", "research_archive"]},
+        "identity_mode": {"type": "string", "enum": ["anonymous", "pseudonymous", "account_hash", "node_hash", "known_internal"]},
+        "notes": {"type": "string"}
+      }
+    },
+    "payload": {"type": "object"},
+    "references": {"type": "array", "items": {"type": "string"}}
+  }
+}
