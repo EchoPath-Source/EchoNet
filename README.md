@@ -47,7 +47,23 @@ examples/
   navigator_route_event_example.json
   aethernode_cluster_event_example.json
   echonet_echochain_handoff_example.json
+scripts/
+  validate_examples.py
+tests/
+  test_schema_examples.py
 ```
+
+## Validation
+
+Install the development dependencies and validate schemas/examples locally:
+
+```bash
+pip install -r requirements-dev.txt
+python scripts/validate_examples.py
+pytest
+```
+
+CI runs the same checks on every pull request and on pushes to `main`.
 
 ## Design constraints
 
@@ -59,4 +75,4 @@ examples/
 
 ## Current phase
 
-This repository is initialized as a contract/documentation scaffold. Implementation should begin with JSON schema validation, adapter fixtures, and a small ingestion service that accepts events conforming to `schemas/echonet_event.schema.json`.
+This repository is initialized as a contract/documentation scaffold with executable schema validation. Implementation should continue with adapter fixtures and a small ingestion service that accepts events conforming to `schemas/echonet_event.schema.json`.
