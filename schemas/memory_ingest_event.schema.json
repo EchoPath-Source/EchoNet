@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.echo-labs.internal/echonet/memory_ingest_event.schema.json",
+  "title": "EchoNet Memory Ingest Event",
+  "description": "Specialization of EchoNet Event for Memory Layer anchor, zone, threshold, and ledger export signals. event_type must be memory.ingest and domain should be MemoryLayer.",
+  "allOf": [{"$ref": "./echonet_event.schema.json"}]
+}
