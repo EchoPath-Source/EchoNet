@@ -1,0 +1,45 @@
+{
+  "schema_version": "echonet.event.v0.1",
+  "event_id": "evt_route_demo_0001",
+  "timestamp": "2026-01-11T04:34:00Z",
+  "source": {
+    "system": "riverpaths",
+    "adapter": "riverpaths_route_v0.1",
+    "source_id": "riverpaths_demo",
+    "session_id": "route_session_hash"
+  },
+  "domain": "RiverPaths",
+  "event_type": "route.telemetry",
+  "seal_mode": "local",
+  "eta_proxy": 0.42,
+  "coherence": {
+    "r_value": 0.33,
+    "spectral_entropy": 2.57,
+    "concurrence_proxy": 0.41,
+    "anomaly_score": 0.12,
+    "anomaly_flag": false,
+    "confidence": 0.86
+  },
+  "privacy": {
+    "classification": "public_safe",
+    "raw_payload_retention": "none",
+    "identity_mode": "anonymous"
+  },
+  "payload": {
+    "route_event_type": "route.completed",
+    "route_card_id": "route_card_demo_0001",
+    "planner": "riverpaths",
+    "display_mode": "kernel_path",
+    "status": "path_found",
+    "start_anchor_id": "start_hash",
+    "goal_anchor_id": "goal_hash",
+    "tube_ids": ["tube_a", "tube_b"],
+    "path_length": 25.63,
+    "mean_curvature": 0.065,
+    "max_curvature": 0.198,
+    "jerk": 0.098,
+    "replan_churn": 0,
+    "fallback_reason": null
+  },
+  "references": ["docs/NAVIGATOR_TELEMETRY.md", "docs/CLUSTER_AND_SIMULATION_BASELINE.md"]
+}
