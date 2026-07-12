@@ -1,0 +1,41 @@
+{
+  "schema_version": "echonet.event.v0.1",
+  "event_id": "evt_cluster_anomaly_window_0001",
+  "timestamp": "2026-01-11T04:46:00Z",
+  "source": {
+    "system": "aethernode",
+    "adapter": "aethernode_cluster_v0.1",
+    "source_id": "seed42_cluster_alpha",
+    "node_id_hash": "cluster_alpha_hash"
+  },
+  "domain": "AetherNode",
+  "event_type": "cluster.coherence",
+  "seal_mode": "ledger",
+  "eta_proxy": 0.62,
+  "coherence": {
+    "r_value": 0.41,
+    "spectral_entropy": 3.18,
+    "concurrence_proxy": 0.58,
+    "anomaly_score": 0.74,
+    "anomaly_flag": true,
+    "confidence": 0.79
+  },
+  "privacy": {
+    "classification": "internal",
+    "raw_payload_retention": "short_window",
+    "identity_mode": "node_hash",
+    "notes": "Synthetic anomaly-window fixture based on seed42-style fields."
+  },
+  "payload": {
+    "cluster_event_type": "coherence.anomaly_window",
+    "cluster_id": "cluster_alpha",
+    "node_count": 5,
+    "window_start": "2026-01-11T04:46:00Z",
+    "window_end": "2026-01-11T04:46:05Z",
+    "sensor_profile": ["qrng", "emf", "magnetic", "temp", "vibration", "acoustic"],
+    "baseline_ref": "seed42_style_fixture",
+    "simulation_version": "EchoNet_Phase1_v1.0",
+    "anomaly_reason_codes": ["phase_shift", "entropy_spike", "cluster_concurrence_change"]
+  },
+  "references": ["docs/AETHERNODE_TELEMETRY.md", "docs/CLUSTER_AND_SIMULATION_BASELINE.md"]
+}
