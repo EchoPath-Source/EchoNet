@@ -1,0 +1,45 @@
+{
+  "schema_version": "echonet.event.v0.1",
+  "event_id": "evt_route_fallback_0001",
+  "timestamp": "2026-01-11T04:42:00Z",
+  "source": {
+    "system": "riverpaths",
+    "adapter": "riverpaths_route_v0.1",
+    "source_id": "riverpaths_demo",
+    "session_id": "route_session_fallback_hash"
+  },
+  "domain": "RiverPaths",
+  "event_type": "route.telemetry",
+  "seal_mode": "local",
+  "eta_proxy": 0.29,
+  "coherence": {
+    "r_value": 0.27,
+    "spectral_entropy": 2.91,
+    "concurrence_proxy": 0.32,
+    "anomaly_score": 0.31,
+    "anomaly_flag": false,
+    "confidence": 0.78
+  },
+  "privacy": {
+    "classification": "public_safe",
+    "raw_payload_retention": "none",
+    "identity_mode": "anonymous"
+  },
+  "payload": {
+    "route_event_type": "route.fallback_used",
+    "route_card_id": "route_card_fallback_0001",
+    "planner": "riverpaths",
+    "display_mode": "demo_fallback",
+    "status": "path_found",
+    "start_anchor_id": "start_hash",
+    "goal_anchor_id": "goal_hash",
+    "tube_ids": [],
+    "path_length": 31.12,
+    "mean_curvature": 0.088,
+    "max_curvature": 0.244,
+    "jerk": 0.141,
+    "replan_churn": 2,
+    "fallback_reason": "kernel_timeout"
+  },
+  "references": ["docs/NAVIGATOR_TELEMETRY.md"]
+}
