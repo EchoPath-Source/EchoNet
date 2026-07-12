@@ -13,8 +13,8 @@ This repo scaffold consolidates the currently available EchoNet project construc
 | `EchoNet Q-RRG Integration Data (seed42).PDF` | Route + coherence metric fields, including path length, curvature, jerk, churn, jitter, `R`, entropy, concurrence, disturbance. |
 | `EchoNet Timeseries Data (seed42).PDF` | Time-windowed `R`, concurrence/coherence, entropy, anomaly flag, phase values. |
 | `Monte Carlo Results Summary (50 seeds).PDF` | 50-seed baseline, 6.5 percent hybrid improvement, zero failure rate, anomaly detection timing. |
-| `Echo Labs Technical Simulation Report v1.PDF` | Technical simulation narrative and interpretation. |
-| `Echo_Labs_Scientific_Field_Report_SOC_v1.2.pdf` | Research-facing framing; should remain research-labeled. |
+| `Echo Labs Technical Simulation Report v1.PDF` | Technical simulation narrative and interpretation; now also informs bounded AI-witness dataset/export framing. |
+| `Echo_Labs_Scientific_Field_Report_SOC_v1.2.pdf` | Research-facing framing, propagation-envelope context, and research-labeled export boundaries. |
 
 ## EchoGenesis / WOSP sources
 
@@ -32,6 +32,14 @@ This repo scaffold consolidates the currently available EchoNet project construc
 | `EchoChain_Topology_Scoring_Spec_MVP_v1.0.docx` | Sealed event packet, topology scoring, privacy/fairness guardrails, confidence, anti-gaming. |
 | `Echochain_Codex_v1.docx` | Reflection Ledger, Return Pings, Ripple Chains, Dream Pool, EchoChain as reward/governance layer. |
 | `Echochain_Primer.pdf` | Mirror Node / remembrance language; context only, not core engineering. |
+
+## New scaffold added from current reconciliation
+
+| Scaffold | Purpose |
+|---|---|
+| `docs/AI_WITNESS_DATASET_PROTOCOL.md` | Bounded protocol for AI-witness-ready exports: claim level, condition labels, source coverage, calibration context, privacy mode, confidence, and governance handoff. |
+| `schemas/ai_witness_dataset.schema.json` | Lightweight schema scaffold for AI-witness dataset packaging. |
+| `examples/ai_witness_dataset_example.json` | Example payload showing the intended export posture without overclaiming. |
 
 ## Copilot thread drop captured
 
