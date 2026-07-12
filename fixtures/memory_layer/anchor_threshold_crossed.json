@@ -1,0 +1,41 @@
+{
+  "schema_version": "echonet.event.v0.1",
+  "event_id": "evt_memory_anchor_threshold_0001",
+  "timestamp": "2026-01-11T04:40:00Z",
+  "source": {
+    "system": "memory_layer",
+    "adapter": "memory_layer_v0.1",
+    "source_id": "room_remembers_demo",
+    "session_id": "session_room_demo_hash"
+  },
+  "domain": "MemoryLayer",
+  "event_type": "memory.ingest",
+  "seal_mode": "local",
+  "eta_proxy": 0.44,
+  "coherence": {
+    "r_value": null,
+    "spectral_entropy": null,
+    "concurrence_proxy": null,
+    "anomaly_score": 0.09,
+    "anomaly_flag": false,
+    "confidence": 0.84
+  },
+  "privacy": {
+    "classification": "public_safe",
+    "raw_payload_retention": "none",
+    "identity_mode": "anonymous",
+    "notes": "Fixture uses fake anchor and zone hashes."
+  },
+  "payload": {
+    "memory_event_type": "threshold.crossed",
+    "anchor_id": "anchor_entryway_hash",
+    "zone_id": "zone_corridor_hash",
+    "channel": "presence",
+    "delta": 0.21,
+    "threshold_before": "watch",
+    "threshold_after": "investigate",
+    "event_count_window": 11,
+    "ledger_export_candidate": true
+  },
+  "references": ["docs/MEMORY_LAYER_INGESTION.md"]
+}
