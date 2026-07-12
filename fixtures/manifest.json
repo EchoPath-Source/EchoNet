@@ -1,0 +1,68 @@
+{
+  "schema_version": "echonet.fixture_manifest.v0.1",
+  "fixtures": [
+    {
+      "path": "fixtures/memory_layer/anchor_threshold_crossed.json",
+      "expected_schema": "memory",
+      "domain": "MemoryLayer",
+      "event_type": "memory.ingest",
+      "purpose": "Memory anchor threshold transition that can become a ledger candidate."
+    },
+    {
+      "path": "fixtures/memory_layer/ledger_export_candidate.json",
+      "expected_schema": "memory",
+      "domain": "MemoryLayer",
+      "event_type": "memory.ingest",
+      "purpose": "Memory Ledger Export candidate using hashed anchor/zone IDs."
+    },
+    {
+      "path": "fixtures/navigator/riverpaths_route_fallback.json",
+      "expected_schema": "navigator",
+      "domain": "RiverPaths",
+      "event_type": "route.telemetry",
+      "purpose": "RiverPaths route event where demo fallback was used."
+    },
+    {
+      "path": "fixtures/navigator/echopath_route_completed.json",
+      "expected_schema": "navigator",
+      "domain": "EchoPath",
+      "event_type": "route.telemetry",
+      "purpose": "EchoPath route completion proving source.system=echopath support."
+    },
+    {
+      "path": "fixtures/navigator/navigator_decision_support.json",
+      "expected_schema": "navigator",
+      "domain": "Navigator",
+      "event_type": "navigator.decision",
+      "purpose": "Navigator decision-support event linked to route recommendation selection."
+    },
+    {
+      "path": "fixtures/aethernode/single_node_sensor_window.json",
+      "expected_schema": "aethernode",
+      "domain": "AetherNode",
+      "event_type": "aethernode.telemetry",
+      "purpose": "Single AetherNode sensor-window packet with QRNG/EMF/environmental summaries."
+    },
+    {
+      "path": "fixtures/aethernode/cluster_anomaly_window.json",
+      "expected_schema": "aethernode",
+      "domain": "AetherNode",
+      "event_type": "cluster.coherence",
+      "purpose": "Cluster coherence anomaly window with seed42-style fields."
+    },
+    {
+      "path": "fixtures/echochain/signal_ping_handoff.json",
+      "expected_schema": "handoff",
+      "domain": "EchoNet",
+      "event_type": "sealed.handoff",
+      "purpose": "EchoNet-to-EchoChain signal-ping handoff projection."
+    },
+    {
+      "path": "fixtures/echochain/fold_ping_council_handoff.json",
+      "expected_schema": "handoff",
+      "domain": "EchoNet",
+      "event_type": "sealed.handoff",
+      "purpose": "Fold-ping handoff fixture with required council seal."
+    }
+  ]
+}

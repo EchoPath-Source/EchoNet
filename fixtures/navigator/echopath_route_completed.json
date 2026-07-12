@@ -1,0 +1,45 @@
+{
+  "schema_version": "echonet.event.v0.1",
+  "event_id": "evt_echopath_route_completed_0001",
+  "timestamp": "2026-01-11T04:43:00Z",
+  "source": {
+    "system": "echopath",
+    "adapter": "echopath_route_v0.1",
+    "source_id": "echopath_smooth_demo",
+    "session_id": "route_session_echopath_hash"
+  },
+  "domain": "EchoPath",
+  "event_type": "route.telemetry",
+  "seal_mode": "local",
+  "eta_proxy": 0.49,
+  "coherence": {
+    "r_value": 0.36,
+    "spectral_entropy": 2.42,
+    "concurrence_proxy": 0.45,
+    "anomaly_score": 0.06,
+    "anomaly_flag": false,
+    "confidence": 0.9
+  },
+  "privacy": {
+    "classification": "public_safe",
+    "raw_payload_retention": "none",
+    "identity_mode": "anonymous"
+  },
+  "payload": {
+    "route_event_type": "route.completed",
+    "route_card_id": "route_card_echopath_0001",
+    "planner": "echopath_smooth",
+    "display_mode": "smoothed_route",
+    "status": "path_found",
+    "start_anchor_id": "start_hash",
+    "goal_anchor_id": "goal_hash",
+    "tube_ids": ["tube_public_safe_a", "tube_public_safe_b"],
+    "path_length": 24.88,
+    "mean_curvature": 0.061,
+    "max_curvature": 0.19,
+    "jerk": 0.081,
+    "replan_churn": 0,
+    "fallback_reason": null
+  },
+  "references": ["docs/NAVIGATOR_TELEMETRY.md", "schemas/navigator_telemetry_event.schema.json"]
+}

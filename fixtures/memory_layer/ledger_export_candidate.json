@@ -1,0 +1,39 @@
+{
+  "schema_version": "echonet.event.v0.1",
+  "event_id": "evt_memory_ledger_candidate_0001",
+  "timestamp": "2026-01-11T04:41:00Z",
+  "source": {
+    "system": "memory_layer",
+    "adapter": "memory_layer_v0.1",
+    "source_id": "memory_ledger_exporter",
+    "session_id": "session_memory_export_hash"
+  },
+  "domain": "MemoryLayer",
+  "event_type": "memory.ingest",
+  "seal_mode": "ledger",
+  "eta_proxy": 0.57,
+  "coherence": {
+    "r_value": null,
+    "spectral_entropy": null,
+    "concurrence_proxy": null,
+    "anomaly_score": 0.04,
+    "anomaly_flag": false,
+    "confidence": 0.88
+  },
+  "privacy": {
+    "classification": "internal",
+    "raw_payload_retention": "none",
+    "identity_mode": "pseudonymous",
+    "notes": "Ledger export candidate with hashed anchors only."
+  },
+  "payload": {
+    "memory_event_type": "ledger.export_candidate",
+    "anchor_ids": ["anchor_safe_route_hash", "anchor_danger_route_hash"],
+    "zone_ids": ["zone_training_room_hash"],
+    "channels": ["safe", "danger", "route"],
+    "summary_window_seconds": 300,
+    "event_count_window": 19,
+    "ledger_export_candidate": true
+  },
+  "references": ["docs/MEMORY_LAYER_INGESTION.md", "docs/ECHONET_ECHOCHAIN_HANDOFF.md"]
+}

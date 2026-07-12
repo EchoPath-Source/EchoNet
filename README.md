@@ -37,6 +37,13 @@ docs/
   PUBLIC_PRIVATE_BOUNDARY.md
   SOURCE_CROSSWALK.md
   INGESTION_LIBRARY.md
+fixtures/
+  README.md
+  manifest.json
+  memory_layer/
+  navigator/
+  aethernode/
+  echochain/
 schemas/
   echonet_event.schema.json
   memory_ingest_event.schema.json
@@ -58,6 +65,7 @@ src/echonet/
 tests/
   test_schema_examples.py
   test_ingestion_library.py
+  test_fixture_catalog.py
 ```
 
 ## Validation and ingestion CLI
@@ -68,10 +76,11 @@ Install the package in editable development mode:
 pip install -e .[dev]
 ```
 
-Validate schemas/examples:
+Validate schemas, examples, and fixtures:
 
 ```bash
 python scripts/validate_examples.py
+echonet validate fixtures/
 pytest
 ```
 
@@ -95,4 +104,4 @@ CI runs validation checks on every pull request and on pushes to `main`.
 
 ## Current phase
 
-This repository is initialized as a contract/documentation scaffold with executable schema validation and a minimal ingestion CLI. Implementation should continue with richer adapter fixtures, local event-store stubs, and dashboard-ready mock streams.
+This repository is initialized as a contract/documentation scaffold with executable schema validation, a minimal ingestion CLI, and a public-safe adapter fixture catalog. Implementation should continue with local event-store stubs and dashboard-ready mock streams.
