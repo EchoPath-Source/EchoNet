@@ -11,6 +11,7 @@ EchoNet is not the product website, not the Memory Lite runtime, not the private
 - Preserve public/private boundaries by storing projections and summaries rather than raw sensitive content whenever possible.
 - Prepare event packets for downstream memory, route diagnostics, dashboards, and EchoChain/Reflection Ledger handoff.
 - Keep EchoNet-specific docs and schemas aligned with EchoGenesis, WOSP, EchoPath Memory Layer, RiverPaths/Navigator, and EchoChain contracts.
+- Preserve bounded research-export and AI-witness packaging rules so synchronized datasets remain auditable and claim-disciplined.
 
 ## Initial adapters
 
@@ -34,6 +35,8 @@ docs/
   AETHERNODE_TELEMETRY.md
   ECHONET_ECHOCHAIN_HANDOFF.md
   CLUSTER_AND_SIMULATION_BASELINE.md
+  COHERENCE_PROPAGATION_ENVELOPE.md
+  AI_WITNESS_DATASET_PROTOCOL.md
   PUBLIC_PRIVATE_BOUNDARY.md
   SOURCE_CROSSWALK.md
   INGESTION_LIBRARY.md
@@ -50,11 +53,13 @@ schemas/
   navigator_telemetry_event.schema.json
   aethernode_telemetry_event.schema.json
   echonet_echochain_handoff.schema.json
+  ai_witness_dataset.schema.json
 examples/
   memory_layer_ingest_example.json
   navigator_route_event_example.json
   aethernode_cluster_event_example.json
   echonet_echochain_handoff_example.json
+  ai_witness_dataset_example.json
 scripts/
   validate_examples.py
 src/echonet/
@@ -101,7 +106,8 @@ CI runs validation checks on every pull request and on pushes to `main`.
 3. Do not copy private Q-RRG/kernel internals. EchoNet can preserve route IDs, tube IDs, and eta proxies without reimplementing kernel logic.
 4. Do not overclaim research results. EchoNet telemetry can support experiments and anomaly detection; it does not prove consciousness or identity.
 5. Do not expose private telemetry by default. Use hashed IDs, aggregates, projections, and sealed-event handoff.
+6. AI-witness-ready exports must carry explicit claim level, condition labeling, coverage context, calibration context, privacy mode, and bounded confidence metadata.
 
 ## Current phase
 
-This repository is initialized as a contract/documentation scaffold with executable schema validation, a minimal ingestion CLI, and a public-safe adapter fixture catalog. Implementation should continue with local event-store stubs and dashboard-ready mock streams.
+This repository is initialized as a contract/documentation scaffold with executable schema validation, a minimal ingestion CLI, and a public-safe adapter fixture catalog. Implementation should continue with local event-store stubs, dashboard-ready mock streams, and stricter AI-witness dataset validation from this scaffold.
