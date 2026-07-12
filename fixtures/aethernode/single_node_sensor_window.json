@@ -1,0 +1,46 @@
+{
+  "schema_version": "echonet.event.v0.1",
+  "event_id": "evt_aethernode_single_window_0001",
+  "timestamp": "2026-01-11T04:45:00Z",
+  "source": {
+    "system": "aethernode",
+    "adapter": "aethernode_sensor_v0.1",
+    "source_id": "aethernode_alpha",
+    "node_id_hash": "node_alpha_hash"
+  },
+  "domain": "AetherNode",
+  "event_type": "aethernode.telemetry",
+  "seal_mode": "local",
+  "eta_proxy": 0.33,
+  "coherence": {
+    "r_value": 0.28,
+    "spectral_entropy": 2.83,
+    "concurrence_proxy": 0.34,
+    "anomaly_score": 0.14,
+    "anomaly_flag": false,
+    "confidence": 0.8
+  },
+  "privacy": {
+    "classification": "internal",
+    "raw_payload_retention": "short_window",
+    "identity_mode": "node_hash",
+    "notes": "Public-safe simulated node window; no real location or raw stream."
+  },
+  "payload": {
+    "node_event_type": "sensor.window",
+    "node_id_hash": "node_alpha_hash",
+    "cluster_id": "cluster_alpha",
+    "window_start": "2026-01-11T04:45:00Z",
+    "window_end": "2026-01-11T04:45:05Z",
+    "sensor_profile": ["qrng", "emf", "magnetic", "temp", "vibration", "acoustic"],
+    "qrng_entropy": 0.503,
+    "emf_uT": 0.101,
+    "magnetic_uT": 42.3,
+    "temperature_c": 21.4,
+    "vibration_rms": 0.02,
+    "acoustic_rms": 0.14,
+    "local_coherence_raw": 0.3,
+    "edge_anomaly_score": 0.08
+  },
+  "references": ["docs/AETHERNODE_TELEMETRY.md"]
+}

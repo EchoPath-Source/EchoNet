@@ -36,6 +36,14 @@ docs/
   CLUSTER_AND_SIMULATION_BASELINE.md
   PUBLIC_PRIVATE_BOUNDARY.md
   SOURCE_CROSSWALK.md
+  INGESTION_LIBRARY.md
+fixtures/
+  README.md
+  manifest.json
+  memory_layer/
+  navigator/
+  aethernode/
+  echochain/
 schemas/
   echonet_event.schema.json
   memory_ingest_event.schema.json
@@ -49,21 +57,42 @@ examples/
   echonet_echochain_handoff_example.json
 scripts/
   validate_examples.py
+src/echonet/
+  cli.py
+  ingestion.py
+  schemas.py
+  validation.py
 tests/
   test_schema_examples.py
+  test_ingestion_library.py
+  test_fixture_catalog.py
 ```
 
-## Validation
+## Validation and ingestion CLI
 
-Install the development dependencies and validate schemas/examples locally:
+Install the package in editable development mode:
 
 ```bash
-pip install -r requirements-dev.txt
+pip install -e .[dev]
+```
+
+Validate schemas, examples, and fixtures:
+
+```bash
 python scripts/validate_examples.py
+echonet validate fixtures/
 pytest
 ```
 
-CI runs the same checks on every pull request and on pushes to `main`.
+Use the CLI:
+
+```bash
+echonet validate examples/
+echonet classify examples/aethernode_cluster_event_example.json
+echonet ingest examples/echonet_echochain_handoff_example.json
+```
+
+CI runs validation checks on every pull request and on pushes to `main`.
 
 ## Design constraints
 
@@ -75,4 +104,4 @@ CI runs the same checks on every pull request and on pushes to `main`.
 
 ## Current phase
 
-This repository is initialized as a contract/documentation scaffold with executable schema validation. Implementation should continue with adapter fixtures and a small ingestion service that accepts events conforming to `schemas/echonet_event.schema.json`.
+This repository is initialized as a contract/documentation scaffold with executable schema validation, a minimal ingestion CLI, and a public-safe adapter fixture catalog. Implementation should continue with local event-store stubs and dashboard-ready mock streams.

@@ -1,0 +1,29 @@
+{
+  "schema_version": "echonet.echochain_handoff.v0.1",
+  "event_id": "handoff_fold_ping_0001",
+  "timestamp": "2026-01-11T04:48:00Z",
+  "source_event_id": "evt_protocol_rewrite_candidate_0001",
+  "actor": "council_process_hash",
+  "targets": ["reflection_ledger_candidate", "protocol_review"],
+  "context": {
+    "domain": "EchoNet",
+    "thread": "protocol_level_field_event",
+    "cluster_id": "council_review"
+  },
+  "seal_mode": "council",
+  "eta_proxy": 0.91,
+  "privacy_projection": {
+    "raw_content_stored": false,
+    "identity_mode": "pseudonymous",
+    "published_fields": ["event_id", "timestamp", "domain", "seal_mode", "eta_proxy", "candidate_ping", "confidence"]
+  },
+  "candidate_ping": "fold",
+  "scoring_inputs": {
+    "agency_hint": 0.7,
+    "relationality_hint": 0.75,
+    "persistence_hint": 0.9,
+    "anomaly_risk": 0.18,
+    "confidence": 0.93
+  },
+  "notes": "Fold ping fixture proves council seal requirement. Not an automatic claim or reward."
+}
