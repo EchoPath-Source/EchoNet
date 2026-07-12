@@ -1,0 +1,49 @@
+{
+  "schema": "echonet.ai_witness_dataset",
+  "dataset_id": "aiw_seed42_window_0001",
+  "dataset_version": "0.1",
+  "protocol_version": "0.1",
+  "generated_at": "2026-07-12T00:00:00Z",
+  "claim_level": "research_export",
+  "condition_label": "baseline",
+  "source_class": "simulation",
+  "sensor_modalities": [
+    "order_parameter_r",
+    "spectral_entropy",
+    "concurrence_proxy",
+    "anomaly_flag"
+  ],
+  "node_count": 10,
+  "cluster_count": 2,
+  "coverage_window_start": "2026-07-12T00:00:00Z",
+  "coverage_window_end": "2026-07-12T00:01:40Z",
+  "calibration_version": "sim-seed42-v1",
+  "algorithm_version": "ai-witness-shadow-0.1",
+  "projection_mode": "aggregate_projection",
+  "privacy_mode": "public_safe",
+  "confidence": 0.62,
+  "confidence_method": "shadow_evaluation",
+  "bounded_features": {
+    "order_parameter_r_mean": 0.283,
+    "spectral_entropy_mean": 2.555,
+    "concurrence_proxy_mean": 0.327,
+    "anomaly_flag_present": true,
+    "eta_proxy_mean": 0.48
+  },
+  "covariates": {
+    "simulation_label": "seed42_reference",
+    "noise_level": 0.15,
+    "pulse_tau": 20,
+    "omega": 0.05
+  },
+  "limitations": [
+    "simulation-derived export",
+    "not an empirical field measurement",
+    "not sufficient for consciousness or causation claims"
+  ],
+  "seal_mode": "local",
+  "downstream_targets": [
+    "dashboard_mock_stream",
+    "research_review"
+  ]
+}
