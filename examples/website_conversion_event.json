@@ -1,0 +1,37 @@
+{
+  "schema_version": "echonet.event.v0.1",
+  "event_id": "evt_conversion_0001",
+  "timestamp": "2026-07-14T15:05:00Z",
+  "source": {
+    "system": "echopathxr_website",
+    "adapter": "website_conversion_v0.1",
+    "source_id": "technology-layers",
+    "session_id": "session_hash_conversion_0001"
+  },
+  "domain": "EchoPathXRWebsite",
+  "event_type": "conversion.intent",
+  "seal_mode": "local",
+  "eta_proxy": 0.0,
+  "coherence": {
+    "r_value": 0.0,
+    "spectral_entropy": 0.0,
+    "concurrence_proxy": 0.0,
+    "anomaly_score": 0.0,
+    "anomaly_flag": false,
+    "confidence": 1.0
+  },
+  "privacy": {
+    "classification": "public_safe",
+    "raw_payload_retention": "none",
+    "identity_mode": "anonymous"
+  },
+  "payload": {
+    "intent_type": "product_interest",
+    "source_page": "/echopath-technology-layers/",
+    "source_demo": null,
+    "product_interest": "echopath-memory-layer",
+    "campaign_id": "organic-site",
+    "cta_target": "/echopath-memory-layer/"
+  },
+  "references": ["docs/WEBSITE_DEMO_TELEMETRY.md"]
+}
