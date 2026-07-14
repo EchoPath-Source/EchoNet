@@ -1,0 +1,42 @@
+{
+  "schema_version": "echonet.event.v0.1",
+  "event_id": "evt_demo_riverpaths_0001",
+  "timestamp": "2026-07-14T15:00:00Z",
+  "source": {
+    "system": "echopathxr_website",
+    "adapter": "website_demo_v0.1",
+    "source_id": "riverpaths-prototype",
+    "session_id": "session_hash_demo_0001"
+  },
+  "domain": "EchoPathXRWebsite",
+  "event_type": "demo.analytics",
+  "seal_mode": "local",
+  "eta_proxy": 0.0,
+  "coherence": {
+    "r_value": 0.0,
+    "spectral_entropy": 0.0,
+    "concurrence_proxy": 0.0,
+    "anomaly_score": 0.0,
+    "anomaly_flag": false,
+    "confidence": 1.0
+  },
+  "privacy": {
+    "classification": "public_safe",
+    "raw_payload_retention": "none",
+    "identity_mode": "anonymous"
+  },
+  "payload": {
+    "event_name": "media_complete",
+    "demo_id": "riverpaths-prototype",
+    "page_path": "/live-demos/",
+    "product_layer": "native",
+    "prototype_status": "early_prototype",
+    "media_progress_pct": 100,
+    "cta_target": "pilot_request",
+    "error_code": null
+  },
+  "references": [
+    "docs/WEBSITE_DEMO_TELEMETRY.md",
+    "docs/NAVIGATOR_TELEMETRY.md"
+  ]
+}
