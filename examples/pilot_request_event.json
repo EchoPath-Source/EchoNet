@@ -1,0 +1,38 @@
+{
+  "schema_version": "echonet.event.v0.1",
+  "event_id": "evt_pilot_request_0001",
+  "timestamp": "2026-07-14T15:10:00Z",
+  "source": {
+    "system": "echopathxr_website",
+    "adapter": "pilot_intake_projection_v0.1",
+    "source_id": "pilots-consulting",
+    "session_id": "session_hash_pilot_0001"
+  },
+  "domain": "EchoPathXRWebsite",
+  "event_type": "pilot.request",
+  "seal_mode": "local",
+  "eta_proxy": 0.0,
+  "coherence": {
+    "r_value": 0.0,
+    "spectral_entropy": 0.0,
+    "concurrence_proxy": 0.0,
+    "anomaly_score": 0.0,
+    "anomaly_flag": false,
+    "confidence": 1.0
+  },
+  "privacy": {
+    "classification": "restricted_summary",
+    "raw_payload_retention": "none",
+    "identity_mode": "pseudonymous"
+  },
+  "payload": {
+    "request_id": "pilot_request_hash_0001",
+    "pilot_type": "movement_smoothness_audit",
+    "industry": "game_development",
+    "product_layer": "smooth",
+    "scope_band": "single_scene",
+    "consent_to_contact": true,
+    "source_page": "/pilots-consulting/"
+  },
+  "references": ["docs/WEBSITE_DEMO_TELEMETRY.md"]
+}
