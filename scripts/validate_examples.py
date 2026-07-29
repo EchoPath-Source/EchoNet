@@ -22,6 +22,7 @@ SCHEMA_FILES = {
     "navigator": SCHEMA_DIR / "navigator_telemetry_event.schema.json",
     "aethernode": SCHEMA_DIR / "aethernode_telemetry_event.schema.json",
     "handoff": SCHEMA_DIR / "echonet_echochain_handoff.schema.json",
+    "ai_witness": SCHEMA_DIR / "ai_witness_dataset.schema.json",
 }
 
 EXAMPLE_SCHEMA_MAP = {
@@ -29,6 +30,7 @@ EXAMPLE_SCHEMA_MAP = {
     "navigator_route_event_example.json": "navigator",
     "aethernode_cluster_event_example.json": "aethernode",
     "echonet_echochain_handoff_example.json": "handoff",
+    "ai_witness_dataset_example.json": "ai_witness",
 }
 
 
