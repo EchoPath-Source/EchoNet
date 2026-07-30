@@ -17,6 +17,7 @@ SCHEMA_FILES = {
     "navigator": "navigator_telemetry_event.schema.json",
     "aethernode": "aethernode_telemetry_event.schema.json",
     "handoff": "echonet_echochain_handoff.schema.json",
+    "ai_witness": "ai_witness_dataset.schema.json",
 }
 
 EVENT_TYPE_SCHEMA = {
@@ -51,10 +52,13 @@ def schema_registry() -> Registry:
 def schema_for_payload(payload: dict) -> str:
     """Return the best schema key for a payload.
 
-    EchoChain handoff packets use their own schema_version. Other EchoNet events are routed by event_type.
-    Unknown event types fall back to the canonical EchoNet event schema.
+    EchoChain handoff packets and AI-witness datasets identify themselves explicitly.
+    Other EchoNet events are routed by event_type. Unknown event types fall back to
+    the canonical EchoNet event schema.
     """
     if payload.get("schema_version") == "echonet.echochain_handoff.v0.1":
         return "handoff"
+    if payload.get("schema") == "echonet.ai_witness_dataset":
+        return "ai_witness"
     event_type = payload.get("event_type")
     return EVENT_TYPE_SCHEMA.get(event_type, "echonet")
