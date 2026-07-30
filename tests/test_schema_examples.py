@@ -18,6 +18,7 @@ SCHEMA_PATHS = {
     "navigator": SCHEMA_DIR / "navigator_telemetry_event.schema.json",
     "aethernode": SCHEMA_DIR / "aethernode_telemetry_event.schema.json",
     "handoff": SCHEMA_DIR / "echonet_echochain_handoff.schema.json",
+    "ai_witness": SCHEMA_DIR / "ai_witness_dataset.schema.json",
 }
 
 EXAMPLE_SCHEMA_MAP = {
@@ -25,6 +26,7 @@ EXAMPLE_SCHEMA_MAP = {
     "navigator_route_event_example.json": "navigator",
     "aethernode_cluster_event_example.json": "aethernode",
     "echonet_echochain_handoff_example.json": "handoff",
+    "ai_witness_dataset_example.json": "ai_witness",
 }
 
 
@@ -116,3 +118,26 @@ def test_public_safe_requires_anonymous_no_raw_retention(schemas: dict[str, dict
     raw_retaining["privacy"]["raw_payload_retention"] = "short_window"
     with pytest.raises(ValidationError):
         validate(schemas["echonet"], raw_retaining, registry)
+
+
+def test_ai_witness_schema_rejects_missing_claim_level(schemas: dict[str, dict], registry: Registry) -> None:
+    packet = load_json(EXAMPLE_DIR / "ai_witness_dataset_example.json")
+    del packet["claim_level"]
+    with pytest.raises(ValidationError):
+        validate(schemas["ai_witness"], packet, registry)
+
+
+def test_ai_witness_schema_rejects_out_of_range_confidence(schemas: dict[str, dict], registry: Registry) -> None:
+    packet = load_json(EXAMPLE_DIR / "ai_witness_dataset_example.json")
+    packet["confidence"] = 1.2
+    with pytest.raises(ValidationError):
+        validate(schemas["ai_witness"], packet, registry)
+
+
+def test_ai_witness_schema_accepts_sealed_research_event(schemas: dict[str, dict], registry: Registry) -> None:
+    packet = load_json(EXAMPLE_DIR / "ai_witness_dataset_example.json")
+    packet["claim_level"] = "sealed_research_event"
+    packet["privacy_mode"] = "sealed"
+    packet["seal_mode"] = "ledger"
+    packet["event_id"] = "event_aiw_0001"
+    validate(schemas["ai_witness"], packet, registry)
