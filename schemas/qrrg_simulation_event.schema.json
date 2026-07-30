@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.echo-labs.internal/echonet/qrrg_simulation_event.schema.json",
+  "title": "Q-RRG Simulation Event",
+  "description": "Claim-disciplined route and simulation telemetry for Q-RRG and EchoPath experiments.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "experiment_id", "timestamp", "scenario_class", "evidence_status", "claim_level", "complete_route", "baseline_equivalent", "config_hash", "metrics", "privacy"],
+  "properties": {
+    "schema_version": {"const": "echonet.qrrg_simulation.v0.1"},
+    "experiment_id": {"type": "string", "minLength": 8},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "scenario_class": {
+      "type": "string",
+      "enum": ["static_obstacle", "curved_ridge", "branching_ridge", "spiral_ridge", "dynamic_obstacle", "planner_comparison", "multi_agent_stress", "recorded_replay", "physical_pilot"]
+    },
+    "evidence_status": {"type": "string", "enum": ["synthetic", "replay", "shadow", "measured"]},
+    "claim_level": {"type": "string", "enum": ["observation", "benchmark", "pilot", "deployment"]},
+    "seed": {"type": ["integer", "null"]},
+    "config_hash": {"type": "string", "minLength": 8},
+    "implementation_version": {"type": "string"},
+    "runtime_context": {"type": "string"},
+    "baseline_planner": {"type": ["string", "null"]},
+    "complete_route": {"type": "boolean"},
+    "baseline_equivalent": {"type": "boolean"},
+    "connectivity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "connected_components": {"type": ["integer", "null"], "minimum": 0},
+        "start_anchor_distance": {"type": ["number", "null"], "minimum": 0},
+        "goal_anchor_distance": {"type": ["number", "null"], "minimum": 0},
+        "ridge_count": {"type": ["integer", "null"], "minimum": 0},
+        "ridge_coverage": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "extracted_path_count": {"type": ["integer", "null"], "minimum": 0},
+        "selected_path_id_hash": {"type": ["string", "null"]}
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["runtime_seconds"],
+      "properties": {
+        "path_steps": {"type": ["integer", "null"], "minimum": 0},
+        "metric_length": {"type": ["number", "null"], "minimum": 0},
+        "smoothness_proxy": {"type": ["number", "null"]},
+        "mean_field_intensity": {"type": ["number", "null"]},
+        "curvature_proxy": {"type": ["number", "null"], "minimum": 0},
+        "jerk_proxy": {"type": ["number", "null"], "minimum": 0},
+        "kink_count": {"type": ["integer", "null"], "minimum": 0},
+        "minimum_clearance": {"type": ["number", "null"], "minimum": 0},
+        "route_displacement": {"type": ["number", "null"], "minimum": 0},
+        "runtime_seconds": {"type": "number", "minimum": 0}
+      }
+    },
+    "fallback_mode": {"type": ["string", "null"]},
+    "failure_reason": {"type": ["string", "null"]},
+    "notes": {"type": "array", "items": {"type": "string"}},
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["classification", "raw_payload_retention", "identity_mode"],
+      "properties": {
+        "classification": {"type": "string", "enum": ["public_safe", "internal", "restricted", "research_private"]},
+        "raw_payload_retention": {"type": "string", "enum": ["none", "short_window", "internal_only", "research_archive"]},
+        "identity_mode": {"type": "string", "enum": ["anonymous", "pseudonymous", "account_hash", "known_internal"]}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"privacy": {"properties": {"classification": {"const": "public_safe"}}, "required": ["classification"]}}},
+      "then": {"properties": {"privacy": {"properties": {"raw_payload_retention": {"const": "none"}, "identity_mode": {"const": "anonymous"}}}}}
+    },
+    {
+      "if": {"properties": {"scenario_class": {"const": "planner_comparison"}}},
+      "then": {"required": ["baseline_planner"]}
+    }
+  ]
+}

@@ -12,6 +12,7 @@ EchoNet is not the product website, not the Memory Lite runtime, not the private
 - Prepare event packets for downstream memory, route diagnostics, dashboards, and EchoChain/Reflection Ledger handoff.
 - Keep EchoNet-specific docs and schemas aligned with EchoGenesis, WOSP, EchoPath Memory Layer, RiverPaths/Navigator, and EchoChain contracts.
 - Preserve bounded research-export and AI-witness packaging rules so synchronized datasets remain auditable and claim-disciplined.
+- Require complete-route, baseline-equivalence, evidence-status, and configuration labels for Q-RRG simulation and planner-comparison telemetry.
 
 ## Initial adapters
 
@@ -19,6 +20,7 @@ EchoNet is not the product website, not the Memory Lite runtime, not the private
 |---|---|---|
 | Memory Layer -> EchoNet | `memory.ingest` | Normalize anchors, zones, memory thresholds, local memory events, and ledger-export candidates. |
 | RiverPaths -> EchoNet | `route.telemetry` | Capture route/demo outcomes, fallback modes, route-card IDs, and route confidence telemetry. |
+| Q-RRG / EchoPath experiments -> EchoNet | `qrrg.simulation_result` | Capture claim-disciplined route connectivity, motion quality, runtime, comparison integrity, and evidence status without kernel internals. |
 | Navigator -> EchoNet | `navigator.decision` | Capture decision-support context without owning Navigator reasoning or UI. |
 | AetherNode -> EchoNet | `aethernode.telemetry` / `cluster.coherence` | Ingest QRNG, EMF, environmental, acoustic, vibration, and cluster coherence metrics. |
 | EchoNet -> EchoChain | `sealed.handoff` | Project validated events into sealed, privacy-aware packets for Reflection Ledger and topology scoring. |
@@ -37,6 +39,7 @@ docs/
   CLUSTER_AND_SIMULATION_BASELINE.md
   COHERENCE_PROPAGATION_ENVELOPE.md
   AI_WITNESS_DATASET_PROTOCOL.md
+  Q_RRG_ROUTE_TELEMETRY_PROFILE.md
   PUBLIC_PRIVATE_BOUNDARY.md
   SOURCE_CROSSWALK.md
   INGESTION_LIBRARY.md
@@ -54,12 +57,14 @@ schemas/
   aethernode_telemetry_event.schema.json
   echonet_echochain_handoff.schema.json
   ai_witness_dataset.schema.json
+  qrrg_simulation_event.schema.json
 examples/
   memory_layer_ingest_example.json
   navigator_route_event_example.json
   aethernode_cluster_event_example.json
   echonet_echochain_handoff_example.json
   ai_witness_dataset_example.json
+  qrrg_simulation_event_example.json
 scripts/
   validate_examples.py
 src/echonet/
@@ -103,11 +108,12 @@ CI runs validation checks on every pull request and on pushes to `main`.
 
 1. Do not duplicate EchoGenesis architecture definitions. EchoGenesis remains the construct spine.
 2. Do not copy Memory Lite runtime internals. EchoNet receives events; it does not own memory execution.
-3. Do not copy private Q-RRG/kernel internals. EchoNet can preserve route IDs, tube IDs, and eta proxies without reimplementing kernel logic.
-4. Do not overclaim research results. EchoNet telemetry can support experiments and anomaly detection; it does not prove consciousness or identity.
+3. Do not copy private Q-RRG/kernel internals. EchoNet can preserve route IDs, tube IDs, eta proxies, connectivity, and benchmark integrity without reimplementing kernel logic.
+4. Do not overclaim research results. EchoNet telemetry can support experiments and anomaly detection; it does not prove consciousness, identity, physical causation, or universal planner superiority.
 5. Do not expose private telemetry by default. Use hashed IDs, aggregates, projections, and sealed-event handoff.
 6. AI-witness-ready exports must carry explicit claim level, condition labeling, coverage context, calibration context, privacy mode, and bounded confidence metadata.
+7. Planner comparisons must not treat incomplete and complete routes as endpoint-equivalent.
 
 ## Current phase
 
-This repository is initialized as a contract/documentation scaffold with executable schema validation, a minimal ingestion CLI, and a public-safe adapter fixture catalog. Implementation should continue with local event-store stubs, dashboard-ready mock streams, and stricter AI-witness dataset validation from this scaffold.
+This repository is initialized as a contract/documentation scaffold with executable schema validation, a minimal ingestion CLI, and a public-safe adapter fixture catalog. Implementation should continue with local event-store stubs, dashboard-ready mock streams, stricter AI-witness dataset validation, and route-evidence summaries built from the Q-RRG telemetry profile.
