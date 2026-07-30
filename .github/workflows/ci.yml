@@ -40,4 +40,4 @@ jobs:
         run: |
           echonet validate examples/
           echonet validate fixtures/
-          echonet classify examples/ai_witness_dataset_example.json
+          echonet validate examples/ai_witness_dataset_example.json --schema ai_witness
