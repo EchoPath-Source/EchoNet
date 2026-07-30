@@ -15,6 +15,9 @@ This repo scaffold consolidates the currently available EchoNet project construc
 | `Monte Carlo Results Summary (50 seeds).PDF` | 50-seed baseline, 6.5 percent hybrid improvement, zero failure rate, anomaly detection timing. |
 | `Echo Labs Technical Simulation Report v1.PDF` | Technical simulation narrative and interpretation; now also informs bounded AI-witness dataset/export framing. |
 | `Echo_Labs_Scientific_Field_Report_SOC_v1.2.pdf` | Research-facing framing, propagation-envelope context, and research-labeled export boundaries. |
+| `Q-RRG_Internal_Simulation_Report_v1_1.pdf` and July 2026 ridge-test thread | Obstacle, curved/branching, spiral, dynamic-perturbation, and preliminary A* comparison results; captured as claim-disciplined route telemetry rather than kernel ownership. |
+| `Q-RRG_Robustness_Declaration_v1.0.pdf` | Multi-agent/noise/jitter/obstacle operating-envelope references and field-cell partitioning posture. |
+| `EchoPath_MultiAgent_Scaling_Packet_v1_0.pdf` | Measured-anchor versus projected-fill distinction for scaling curves and tuning references. |
 
 ## EchoGenesis / WOSP sources
 
@@ -40,6 +43,9 @@ This repo scaffold consolidates the currently available EchoNet project construc
 | `docs/AI_WITNESS_DATASET_PROTOCOL.md` | Bounded protocol for AI-witness-ready exports: claim level, condition labels, source coverage, calibration context, privacy mode, confidence, and governance handoff. |
 | `schemas/ai_witness_dataset.schema.json` | Lightweight schema scaffold for AI-witness dataset packaging. |
 | `examples/ai_witness_dataset_example.json` | Example payload showing the intended export posture without overclaiming. |
+| `docs/Q_RRG_ROUTE_TELEMETRY_PROFILE.md` | Telemetry profile for route connectivity, motion quality, runtime, evidence status, comparison integrity, and protected-kernel boundaries. |
+| `schemas/qrrg_simulation_event.schema.json` | Executable schema requiring complete-route and baseline-equivalence labeling for Q-RRG simulation events. |
+| `examples/qrrg_simulation_event_example.json` | Public-safe A* comparison example that explicitly records the incomplete Q-RRG endpoint and prevents a false equivalent-path claim. |
 
 ## Copilot thread drop captured
 
