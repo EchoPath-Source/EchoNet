@@ -1,0 +1,48 @@
+{
+  "schema_version": "echonet.qrrg_simulation.v0.1",
+  "experiment_id": "qrrg-astar-comparison-2026-07-001",
+  "timestamp": "2026-07-29T23:30:00Z",
+  "scenario_class": "planner_comparison",
+  "evidence_status": "synthetic",
+  "claim_level": "observation",
+  "seed": 42,
+  "config_hash": "sha256:8a9df154f85c1a61",
+  "implementation_version": "prototype-python-v0.1",
+  "runtime_context": "Python synthetic 80x80 field benchmark",
+  "baseline_planner": "A*",
+  "complete_route": false,
+  "baseline_equivalent": false,
+  "connectivity": {
+    "connected_components": null,
+    "start_anchor_distance": null,
+    "goal_anchor_distance": null,
+    "ridge_count": null,
+    "ridge_coverage": null,
+    "extracted_path_count": null,
+    "selected_path_id_hash": "sha256:path-segment-redacted"
+  },
+  "metrics": {
+    "path_steps": 65,
+    "metric_length": null,
+    "smoothness_proxy": 0.576,
+    "mean_field_intensity": 0.48,
+    "curvature_proxy": null,
+    "jerk_proxy": null,
+    "kink_count": null,
+    "minimum_clearance": null,
+    "route_displacement": null,
+    "runtime_seconds": 0.088
+  },
+  "fallback_mode": "ridge_graph_stitching_required",
+  "failure_reason": "selected ridge segment did not fully connect requested start and goal",
+  "notes": [
+    "A* completed the endpoint task in 118 steps and 0.262 seconds.",
+    "The Q-RRG segment must not be presented as an endpoint-equivalent path-length win.",
+    "No private field synthesis parameters are included."
+  ],
+  "privacy": {
+    "classification": "public_safe",
+    "raw_payload_retention": "none",
+    "identity_mode": "anonymous"
+  }
+}
