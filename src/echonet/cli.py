@@ -63,15 +63,19 @@ def build_parser() -> argparse.ArgumentParser:
 
     validate_parser = subparsers.add_parser("validate", help="Validate JSON files or directories of JSON files.")
     validate_parser.add_argument("paths", nargs="+", help="JSON files or directories to validate.")
-    validate_parser.add_argument("--schema", choices=["echonet", "memory", "navigator", "aethernode", "handoff"], help="Force a specific schema instead of auto-routing.")
+    validate_parser.add_argument(
+        "--schema",
+        choices=["echonet", "memory", "navigator", "aethernode", "handoff", "ai_witness"],
+        help="Force a specific schema instead of auto-routing.",
+    )
     validate_parser.set_defaults(func=validate_command)
 
-    classify_parser = subparsers.add_parser("classify", help="Validate JSON files and emit routing summaries.")
-    classify_parser.add_argument("paths", nargs="+", help="JSON files or directories to classify.")
+    classify_parser = subparsers.add_parser("classify", help="Validate JSON event files and emit routing summaries.")
+    classify_parser.add_argument("paths", nargs="+", help="JSON event files or directories to classify.")
     classify_parser.set_defaults(func=classify_command)
 
-    ingest_parser = subparsers.add_parser("ingest", help="Validate JSON files and emit ingestion summaries.")
-    ingest_parser.add_argument("paths", nargs="+", help="JSON files or directories to ingest.")
+    ingest_parser = subparsers.add_parser("ingest", help="Validate JSON event files and emit ingestion summaries.")
+    ingest_parser.add_argument("paths", nargs="+", help="JSON event files or directories to ingest.")
     ingest_parser.set_defaults(func=ingest_command)
 
     return parser
